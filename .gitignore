@@ -31,5 +31,5 @@
 .DS_Store
 
 # otras cosas
-_MATERIAL
+_MATERIAL/
 *.pdf
