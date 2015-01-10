@@ -1,0 +1,38 @@
+Fecha : 28/10/2013
+Ultima Modificacion : 29/11/2013
+Contribuyente : Nina Martin
+
+
+======= Compilacion =======
+
+# make
+# ./practica3
+
+
+======= Modelo =======
+
+El modelo dibujado es una balanza, se compone de un socle, un tallo, y un brazo amovible
+El pie y el tallo son objetos sencillo cada uno es definido en un fichero ply
+El brazo amovible es un objeto compuesto, se compone de un tallo horizontal y de mecanismos en cada lado para levantar las pesas
+Los mecanismos en cada lado son objetos compuestos tambien, hay un platillo, un hilo para levantar el platillo, y un cubo sobre el platillo (el objeto que la balanza pesa)
+
+Todos los objetos sencillos son definidos en ficheros .ply
+Cada objeto compuesto se considera como una subescena en la estructura de datos 
+
+
+======= Teclas =======
+
+Tecla p: Visualizar en modo puntos
+Tecla l: Visualizar en modo líneas/aristas
+Tecla s: Visualizar en modo sólido
+Tecla a: Visualizar en modo ajedrez
+Tecla 1: Activar objeto PLY cargado
+Tecla 2: Activar objeto por revolución
+Tecla 3: Activar objeto jerárquico
+Tecla 4 : Activar la escena
+Tecla Z/z: modifica primer grado de libertad del modelo jerárquico (angulo del brazo)
+Tecla X/x: modifica segundo grado de libertad del modelo jerárquico (angulo de los platillos)
+Tecla C/c: modifica tercer grado de libertad del modelo jerárquico (posicion de los cubos sobre los platillos)
+
+
+

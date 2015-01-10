@@ -1,0 +1,26 @@
+
+alpha es el angulo que se desea rotar (en radianes)
+
+-----------------------------
+ROTACION sobre el eje x(alpha)
+
+rotateX(apha)
+P'x = Px
+P'y = cos(alph) py - sin(alph) pz
+P'z = sin(alph) py + cos(alph) pz
+
+-----------------------------
+ROTACION sobre el eje y(alph)
+
+rotateY(apha)
+P'x = cos(alph) px + sin(alph) pz
+P'y = py
+P'z = -sin(alph) px + cos(alph) pz
+
+-----------------------------
+ROTACION sobre el eje z(alph)
+
+rotateZ(apha)
+P'x = cos(alph) px - sin(alph) py
+P'y = sin(alph) px + cos(alph) py
+P'z = pz
