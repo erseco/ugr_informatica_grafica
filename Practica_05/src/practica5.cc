@@ -58,6 +58,10 @@ float light_beta = 0.0;
 int xant;
 int yant;
 
+bool model1_color_orig = true;
+bool model2_color_orig = true;
+
+
 GLint rendermode;
 
 Model * model2 = new Model(); // Aqui guardamos la figura cargada
@@ -181,16 +185,16 @@ void draw_objects()
 			break;
 	}
 
-	// Dibujamos el punto para depurar
-	glBegin(GL_POINTS);
+	// // Dibujamos el punto para depurar
+	// glBegin(GL_POINTS);
 
-	glColor3f(1, 0, 0);
-	glPointSize(20);
+	// glColor3f(1, 0, 0);
+	// glPointSize(20);
 
-	glVertex3f(light_alpha, light_beta, 1);
+	// glVertex3f(light_alpha, light_beta, 1);
 
 
-	glEnd();
+	// glEnd();
 
 
 
@@ -221,7 +225,7 @@ void draw_objects()
 	if (rendermode==GL_SELECT)
 	{
 		glLoadName(2);
-		cout << "Hola2" << endl;
+		// cout << "Hola2" << endl;
 
 	}
 
@@ -528,24 +532,47 @@ void procesar_hits(GLint hits, GLuint *names)
 	{
 
 		if (names[0 + 3] == 1)
-			model1->setColor(0,0,1,1);
+		{
+			if (model1_color_orig)
+			{
+				model1->setColor(0,0,1,1);
+				model1_color_orig = false;
+			}
+			else
+			{
+				model1->setColor(0,1,0,1);
+				model1_color_orig = true;
+			}
+
+		}
 
 		else if (names[0 + 3] == 2)
-			model2->setColor(1,0,0,1);
+		{
+			if (model2_color_orig)
+			{
+				model2->setColor(1,0,0,1);
+				model2_color_orig = false;
+			}
+			else
+			{
+				model2->setColor(0,1,0,1);
+				model2_color_orig = true;
+			}
+		}
 
 
 		//glColor3f(0,0,1);
 	}
 
-	switch (names[0+3])
-	{
-		case 1:
-		{
-			cout << "hola" << endl;
-			glColor3f(0,0,1);
-			break;
-		}
-	}
+	// switch (names[0+3])
+	// {
+	// 	case 1:
+	// 	{
+	// 		cout << "hola" << endl;
+	// 		glColor3f(0,0,1);
+	// 		break;
+	// 	}
+	// }
 	//....
 	// procesar el cambio de color
 	//...
@@ -667,7 +694,7 @@ void pick (int x, int y)
 
 void clickRaton( int boton, int estado, int x, int y )
 {
-	if ( boton == GLUT_RIGHT_BUTTON )
+	if ( boton == GLUT_LEFT_BUTTON )
 	{
 
 		pick(x, y);
@@ -683,6 +710,9 @@ void clickRaton( int boton, int estado, int x, int y )
 
 void ratonMovido( int x, int y )
 {
+
+	pick(x, y);
+	cout << "Movido";
 
 	// if ( estadoRaton==MOVIENDO_CAMARA_FIRSTPERSON)
 	// {
@@ -831,7 +861,9 @@ int main(int argc, char **argv)
 
 
 	glutMouseFunc(clickRaton);
-	glutMotionFunc(ratonMovido);
+	// glutMotionFunc(ratonMovido);
+	// glutPassiveMotionFunc(ratonMovido);
+
 
 
 	// funcion de inicialización
