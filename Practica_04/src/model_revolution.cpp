@@ -183,13 +183,11 @@ void Model_Revolution::calcular_coord_textura(int N, int M)
     for(unsigned int k=1; k<M; k++)
         d[k] = d[k-1] + distancia(_vertices[k-1], _vertices[k]);
 
-    for(unsigned int i=0; i<N; i++)
+    for(unsigned int i=0; i<=N; i++)
     {
+        float si = (float)i/(N-1);
         for(unsigned int j=0; j<M; j++)
         {
-
-            float si = (float)i/(N-1);
-
             float tj = d[j]/d[M-1];
 
             _texturas.push_back(_vertex2f(si, tj));
